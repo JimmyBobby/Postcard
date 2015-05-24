@@ -11,9 +11,11 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var enterNameTextField: UITextField!
     @IBOutlet weak var enterMessageTextField: UITextField!
     @IBOutlet weak var mailButton: UIButton!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +29,16 @@ class ViewController: UIViewController {
 
     @IBAction func sendMailButtonPressed(sender: UIButton) {
     // Adding a Comment here to test commits //
-        messageLabel.hidden = false
-        messageLabel.text = enterMessageTextField.text
-        messageLabel.textColor = UIColor.redColor()
+        messageLabel.hidden = false                     //Hides initial Label//
+        messageLabel.text = enterMessageTextField.text  //Text = what is entered in MessageTextField//
+        messageLabel.textColor = UIColor.redColor()     //Text colour red//
+        
+        nameLabel.hidden = false
+        nameLabel.text = enterNameTextField.text
+        nameLabel.textColor = UIColor.blueColor()
+        
+        enterNameTextField.text = ""                    //Field resets to "" ie.blank//
+        enterNameTextField.resignFirstResponder()       //Closes keyboard //
         
         enterMessageTextField.text = ""
         enterMessageTextField.resignFirstResponder()
